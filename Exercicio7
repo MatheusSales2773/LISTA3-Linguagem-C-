@@ -1,1 +1,21 @@
+#include <stdio.h>
+#include <unistd.h>
+
+void dormir(int segundos) {
+    printf("Dormindo... %d segundos\n", segundos);
+    sleep(segundos);
+}
+
+int main() {
+    int segundos;
+    
+    printf("Digite quantos segundos deseja dormir: ");
+    scanf("%d", &segundos);
+    
+    dormir(segundos);
+    
+    printf("Acordou!\n");
+    
+    return 0;
+}
 
