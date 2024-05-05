@@ -1,1 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+char* monet(float v) {
+    if (v < 0) {
+        printf("Erro: Valor inválido. Digite um valor positivo.\n");
+        return NULL;
+    }
+
+    int size = snprintf(NULL, 0, "R$ %.2f", v) + 1;
+    char *result = (char*)malloc(size);
+    if (result == NULL) {
+        printf("Erro: Falha ao alocar memória.\n");
+        return NULL;
+    }
+
+    snprintf(result, size, "R$ %.2f", v);
+    return result;
+}
+
+int main() {
+    float valor;
+    printf("Digite um valor: ");
+    if (scanf("%f", &valor) != 1) {
+        printf("Erro: Falha ao ler o valor. Tente novamente.\n");
+        return 1;
+    }
+
+    char* formatted_value = monet(valor);
+    if (formatted_value == NULL) {
+        return 1;
+    }
+
+    printf("%s\n", formatted_value);
+    free(formatted_value);
+    return 0;
+}
