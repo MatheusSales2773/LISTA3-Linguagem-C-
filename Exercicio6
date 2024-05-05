@@ -1,1 +1,1 @@
-
+Se as strings têm comprimentos fixos e conhecidos, uma matriz de caracteres é mais adequada devido à eficiência em termos de memória e facilidade de manipulação. Por outro lado, se as strings têm comprimentos variáveis ou desconhecidos, um vetor de ponteiros é mais flexível, permitindo um uso eficiente da memória e facilitando a manipulação de strings de tamanhos diferentes. A escolha depende das características das strings e das operações a serem realizadas sobre elas.
