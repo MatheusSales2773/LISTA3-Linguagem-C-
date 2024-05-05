@@ -1,1 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+float calcular(float a, char operador, float b) {
+    switch (operador) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            if (b != 0) {
+                return a / b;
+            } else {
+                printf("Erro: divisão por zero!\n");
+                exit(EXIT_FAILURE);
+            }
+        default:
+            printf("Operador inválido!\n");
+            exit(EXIT_FAILURE);
+    }
+}
+
+int main() {
+    float valor1, valor2, resultado;
+    char operador;
+    
+    printf("Digite uma expressão (ex: 3 * 4, 3 - 4, 3 + 4): ");
+    scanf("%f %c %f", &valor1, &operador, &valor2);
+    
+    switch (operador) {
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+            resultado = calcular(valor1, operador, valor2);
+            printf("O resultado é: %.2f\n", resultado);
+            break;
+        default:
+            printf("Operador inválido!\n");
+            break;
+    }
+    
+    return 0;
+}
 
