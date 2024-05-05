@@ -1,1 +1,48 @@
+#include <stdio.h>
+
+typedef struct Livro {
+    char titulo[50];
+    char autor[50];
+    int ano_publicacao;
+} Livro;
+
+void preencherLivro(Livro *livro) {
+    printf("Digite o título do livro: ");
+    fgets(livro->titulo, 50, stdin);
+    livro->titulo[strcspn(livro->titulo, "\n")] = '\0';
+
+    printf("Digite o autor do livro: ");
+    fgets(livro->autor, 50, stdin);
+    livro->autor[strcspn(livro->autor, "\n")] = '\0';
+
+    printf("Digite o ano de publicação do livro: ");
+    scanf("%d", &livro->ano_publicacao);
+    getchar(); // Consumir o caractere de nova linha do buffer
+}
+
+void preencherTabelaLivros(Livro *tabelaLivros, int tamanhoTabela) {
+    for (int i = 0; i < tamanhoTabela; i++) {
+        preencherLivro(&tabelaLivros[i]);
+    }
+}
+
+void imprimirLivro(Livro *livro) {
+    printf("\nDados do livro:\n");
+    printf("Título: %s\n", livro->titulo);
+    printf("Autor: %s\n", livro->autor);
+    printf("Ano de publicação: %d\n", livro->ano_publicacao);
+}
+
+int main() {
+    int tamanhoTabela = 1;
+    Livro tabelaLivros[tamanhoTabela];
+
+    preencherTabelaLivros(tabelaLivros, tamanhoTabela);
+
+    for (int i = 0; i < tamanhoTabela; i++) {
+        imprimirLivro(&tabelaLivros[i]);
+    }
+
+    return 0;
+}
 
