@@ -1,1 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* strsub(const char* s, int i, int n) {
+    if (i < 0 || i >= strlen(s)) {
+        return strdup("");
+    }
+
+    int len = strnlen(s + i, n);
+    char* substring = (char*)malloc((len + 1) * sizeof(char));
+    if (substring == NULL) {
+        perror("Falha ao alocar memória");
+        exit(EXIT_FAILURE);
+    }
+
+    strncpy(substring, s + i, len);
+    substring[len] = '\0';
+
+    return substring;
+}
+
+int main() {
+    const char* s = "felipe";
+    int i = 3;
+    int n = 7;
+    char* sub = strsub(s, i, n);
+
+    printf("Substring: %s\n", sub);
+
+    free(sub);
+
+    return 0;
+}
 
