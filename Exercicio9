@@ -1,1 +1,33 @@
+#include <stdio.h>
+
+char *strchr(const char *s, int c) {
+    while (*s != '\0') {
+        if (*s == c) {
+            return (char *)s;
+        }
+        s++;
+    }
+    return NULL;
+}
+
+int main() {
+    char string[100];
+    char caracter;
+    
+    printf("Digite uma frase: ");
+    scanf("%99[^\n]", string);
+    
+    printf("Digite um caractere a ser buscado na frase: ");
+    scanf(" %c", &caracter);
+    
+    char *resultado = strchr(string, caracter);
+    
+    if (resultado != NULL) {
+        printf("Caractere '%c' encontrado na posição %ld\n", caracter, resultado - string);
+    } else {
+        printf("Caractere '%c' não encontrado na frase.\n", caracter);
+    }
+    
+    return 0;
+}
 
