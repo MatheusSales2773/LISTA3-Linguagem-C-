@@ -1,1 +1,16 @@
+#include <stdio.h>
 
+size_t strlen(const char *s) {
+    const char *fim = s;
+    while (*fim) {
+        fim++;
+    }
+    return fim - s;
+}
+
+int main() {
+    const char str[] = "Ola, gente!";
+    size_t tamanho = strlen(str);
+    printf("Tamanho da string: %zu\n", tamanho);
+    return 0;
+}
