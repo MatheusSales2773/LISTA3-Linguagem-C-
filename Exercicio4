@@ -1,1 +1,20 @@
+#include <stdio.h>
 
+void minha_puts(const char *s) {
+    if (s == NULL) {
+        return;
+    }
+    
+    while (*s) {
+        putchar(*s);
+        s++;
+    }
+    
+    putchar('\n');
+}
+
+int main() {
+    char str[] = "Ola, gente!";
+    minha_puts(str);
+    return 0;
+}
